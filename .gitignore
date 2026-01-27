@@ -1,0 +1,11 @@
+.gradle/
+build/
+app/build/
+local.properties
+.idea/
+*.iml
+*.DS_Store
+captures/
+.externalNativeBuild/
+.cxx/
+app/src/main/jniLibs/arm64-v8a/libtun2socks.so
