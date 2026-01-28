@@ -22,6 +22,7 @@ data class SecureProxyConfig(
     val type: ProxyType = ProxyType.HTTP,
     val blockAllDoh: Boolean = true
 ) : Parcelable {
+    @Parcelize
     enum class ProxyType : Parcelable { HTTP, SOCKS5 }
 
     companion object {
