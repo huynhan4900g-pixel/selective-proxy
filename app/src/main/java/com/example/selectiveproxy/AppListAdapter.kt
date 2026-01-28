@@ -16,6 +16,7 @@ class AppListAdapter(
 ) : RecyclerView.Adapter<AppListAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val icon: android.widget.ImageView = view.findViewById(R.id.app_icon)
         val name: TextView = view.findViewById(android.R.id.text1)
         val checkbox: CheckBox = view.findViewById(R.id.checkbox)
     }
@@ -29,6 +30,7 @@ class AppListAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val app = apps[position]
         holder.name.text = app.loadLabel(packageManager)
+        holder.icon.setImageDrawable(app.loadIcon(packageManager))
         holder.checkbox.isChecked = selected.contains(app.packageName)
 
         holder.itemView.setOnClickListener {

@@ -189,15 +189,9 @@ class ProtocolAdapter(
                 }
             }
 
-            val isHttps = targetPort == 443
             val request = buildString {
-                if (isHttps) {
-                    append("CONNECT $targetHost:$targetPort HTTP/1.1\r\n")
-                    append("Host: $targetHost:$targetPort\r\n")
-                } else {
-                    append("GET http://$targetHost:$targetPort/ HTTP/1.1\r\n")
-                    append("Host: $targetHost\r\n")
-                }
+                append("CONNECT $targetHost:$targetPort HTTP/1.1\r\n")
+                append("Host: $targetHost:$targetPort\r\n")
                 authHeader?.let { append("$it\r\n") }
                 append("Proxy-Connection: keep-alive\r\n")
                 append("\r\n")
